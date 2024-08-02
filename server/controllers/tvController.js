@@ -7,7 +7,7 @@ export const getTrendingTVShows = async (req, res)=>{
 
         res.status(200).json({ content: movie });
     } catch(error) {
-        console.log('Error in getTrendingMovie : ', error.message);
+        console.log('Error in getTrendingTVShows : ', error.message);
         res.status(500).json({ error: "Internal server error" })
     }
 }
@@ -26,7 +26,7 @@ export const getTrailersForTVShows = async (req, res) => {
             return res.status(404).send(null);
         }
 
-        console.log("Error in getTrailersForMovie: ", error.message);
+        console.log("Error in getTrailersForTVShows: ", error.message);
         res.status(500).json({ error: "Internal server error" });
     }
 }
@@ -41,7 +41,7 @@ export const getTVShowDetails = async (req, res) => {
         const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/tv/${tvShow_id}?language=en-US`);        
         res.status(200).json({ content: data });
     } catch(error) {
-        console.log("Error in getTrailersForMovie: ", error.message);
+        console.log("Error in getTVShowDetails: ", error.message);
         res.status(500).json({ error: "Internal server error" });
     }
 }
@@ -56,7 +56,7 @@ export const getSimilarTVShows = async (req, res) => {
         const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/tv/${tvShow_id}/similar?language=en-US&page=1`);
         res.status(200).json({ content: data?.results });
     } catch(error) {
-        console.log("Error in getSimilarMovies: ", error.message);
+        console.log("Error in getSimilarTVShows: ", error.message);
         res.status(500).json({ error: 'Internal server error' });
     }
 }
@@ -67,7 +67,7 @@ export const getTVShowsByCategory = async (req, res) => {
         const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/tv/${category}?language=en-US&page=1`);
         res.status(200).json({ content: data?.results });
     } catch(error) {
-        console.log("Error in getMoviesByCategory: ", error.message);
+        console.log("Error in getTVShowsByCategory: ", error.message);
         res.status(500).json({ error: 'Internal server error' });
     }
 }

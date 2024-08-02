@@ -41,7 +41,7 @@ export const getMovieDetails = async (req, res) => {
         const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`);        
         res.status(200).json({ content: data });
     } catch(error) {
-        console.log("Error in getTrailersForMovie: ", error.message);
+        console.log("Error in getMovieDetails: ", error.message);
         res.status(500).json({ error: "Internal server error" });
     }
 }

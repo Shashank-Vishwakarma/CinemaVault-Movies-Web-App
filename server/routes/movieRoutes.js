@@ -1,12 +1,13 @@
 import express from 'express';
 import { getTrailersForMovie, getTrendingMovie, getMovieDetails, getSimilarMovies, getMoviesByCategory } from '../controllers/movieController.js';
+import { protectRoutewithJwt } from '../middlewares/protectRouteWithJwt.js';
 
 const movieRoutes = express.Router();
 
-movieRoutes.get('/trending', getTrendingMovie);
-movieRoutes.get('/:movie_id/trailers', getTrailersForMovie);
-movieRoutes.get('/:movie_id/details', getMovieDetails);
-movieRoutes.get('/:movie_id/similar', getSimilarMovies);
-movieRoutes.get('/:category', getMoviesByCategory);
+movieRoutes.get('/trending', protectRoutewithJwt, getTrendingMovie);
+movieRoutes.get('/:tvShow_id/trailers', protectRoutewithJwt, getTrailersForMovie);
+movieRoutes.get('/:tvShow_id/details', protectRoutewithJwt, getMovieDetails);
+movieRoutes.get('/:tvShow_id/similar', protectRoutewithJwt, getSimilarMovies);
+movieRoutes.get('/:category', protectRoutewithJwt, getMoviesByCategory);
 
 export default movieRoutes;

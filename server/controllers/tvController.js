@@ -1,8 +1,8 @@
 import { fetchMoviesFromTMDB } from "../service/tmdb.js";
 
-export const getTrendingMovie = async (req, res)=>{
+export const getTrendingTVShows = async (req, res)=>{
     try {
-        const data = await fetchMoviesFromTMDB("https://api.themoviedb.org/3/trending/movie/day?language=en-US");
+        const data = await fetchMoviesFromTMDB("https://api.themoviedb.org/3/trending/tv/day?language=en-US");
         const movie = data?.results[Math.floor(Math.random() * data?.results?.length)];
 
         res.status(200).json({ content: movie });
@@ -12,14 +12,14 @@ export const getTrendingMovie = async (req, res)=>{
     }
 }
 
-export const getTrailersForMovie = async (req, res) => {
-    const { movie_id } = req.params;
-    if(!movie_id) {
+export const getTrailersForTVShows = async (req, res) => {
+    const { tvShow_id } = req.params;
+    if(!tvShow_id) {
         return res.status(400).json({ error: "ID not found" });
     }
 
     try {
-        const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/movie/${movie_id}/videos?language=en-US`);
+        const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/tv/${tvShow_id}/videos?language=en-US`);
         res.status(200).json({ content: data?.results });
     } catch(error) {
         if(error.message.includes("404")) {
@@ -31,14 +31,14 @@ export const getTrailersForMovie = async (req, res) => {
     }
 }
 
-export const getMovieDetails = async (req, res) => {
-    const { movie_id } = req.params;
-    if(!movie_id) {
+export const getTVShowDetails = async (req, res) => {
+    const { tvShow_id } = req.params;
+    if(!tvShow_id) {
         return res.status(400).json({ error: "ID not found" });
     }
 
     try {
-        const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`);        
+        const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/tv/${tvShow_id}?language=en-US`);        
         res.status(200).json({ content: data });
     } catch(error) {
         console.log("Error in getTrailersForMovie: ", error.message);
@@ -46,14 +46,14 @@ export const getMovieDetails = async (req, res) => {
     }
 }
 
-export const getSimilarMovies = async (req, res) => {
-    const { movie_id } = req.params;
-    if(!movie_id) {
+export const getSimilarTVShows = async (req, res) => {
+    const { tvShow_id } = req.params;
+    if(!tvShow_id) {
         return res.status(400).json({ error: "ID not found" });
     }
 
     try {
-        const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/movie/${movie_id}/similar?language=en-US&page=1`);
+        const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/tv/${tvShow_id}/similar?language=en-US&page=1`);
         res.status(200).json({ content: data?.results });
     } catch(error) {
         console.log("Error in getSimilarMovies: ", error.message);
@@ -61,10 +61,10 @@ export const getSimilarMovies = async (req, res) => {
     }
 }
 
-export const getMoviesByCategory = async (req, res) => {
+export const getTVShowsByCategory = async (req, res) => {
     const { category } = req.params;
     try {
-        const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`);
+        const data = await fetchMoviesFromTMDB(`https://api.themoviedb.org/3/tv/${category}?language=en-US&page=1`);
         res.status(200).json({ content: data?.results });
     } catch(error) {
         console.log("Error in getMoviesByCategory: ", error.message);

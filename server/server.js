@@ -1,6 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import authRoutes from './routes/userRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 import { ENV_VARS } from './config/envVars.js';
 import movieRoutes from './routes/movieRoutes.js';
 import tvRoutes from './routes/tvRoutes.js';

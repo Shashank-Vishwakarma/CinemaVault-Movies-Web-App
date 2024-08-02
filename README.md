@@ -10,9 +10,26 @@ This is a web app for streaming movies built using MERN stack.
 ## Screenshots
 
 
-## Frontend setup
+## Setup
+1. Create a .env file in the root directory.
+2. Put these environment variables in .env file.
+```
+PORT=....
+MONGODB_URL=....
+JWT_SECRET_KEY=....
+NODE_ENV=....
+```
 
+## Frontend setup
+1. Move to client folder and run below commands:
+```
+npm install
+npm run dev
+```
 
 ## Backend setup
-
-
+1. In the root directory, run the below commands:
+```
+npm install
+npm run server
+```

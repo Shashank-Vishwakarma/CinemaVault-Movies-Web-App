@@ -9,7 +9,7 @@ export const signUpAuth = async (req, res) => {
             return res.status(400).json({ error: 'All fields are required' });
         }
 
-        if(password.length < 6) {
+        if (password.length < 6) {
             return res.status(400).json({ error: 'Password must have at least 6 characters' });
         }
 
@@ -22,7 +22,7 @@ export const signUpAuth = async (req, res) => {
         if (existingUserWithEmail) {
             return res.status(400).json({ error: 'User with this email already exists' });
         }
-        
+
         const newUser = new User({ username, email, password });
         await newUser.save();
 
@@ -41,8 +41,7 @@ export const signUpAuth = async (req, res) => {
                 _id: newUser._id,
                 username: newUser.username,
                 email: newUser.email,
-            },
-            token: JWTToken
+            }
         });
     } catch (err) {
         res.status(500).json({ error: `Error in signUpAuth : ${err}` });
@@ -57,7 +56,7 @@ export const loginAuth = async (req, res) => {
             return res.status(400).json({ error: 'All fields are required' });
         }
 
-        if(password.length < 6) {
+        if (password.length < 6) {
             return res.status(400).json({ error: 'Password must have at least 6 characters' });
         }
 
@@ -87,8 +86,7 @@ export const loginAuth = async (req, res) => {
                 _id: user._id,
                 username: user.username,
                 email: user.email
-            },
-            token: JWTtoken
+            }
         });
     } catch (err) {
         res.status(500).json({ error: `Error logging the user in: ${err}` });

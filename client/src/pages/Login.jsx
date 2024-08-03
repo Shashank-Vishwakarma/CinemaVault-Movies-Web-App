@@ -1,7 +1,7 @@
 import { KeyRound, Mail } from 'lucide-react';
 import React from 'react'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useLogin from '../hooks/useLogin.js';
 
 const Login = () => {
@@ -10,9 +10,12 @@ const Login = () => {
 
     const { loading, login } = useLogin();
 
+    const navigateTo = useNavigate();
+
     const handleLogin = async (e) => {
         e.preventDefault();
         await login({ email, password });
+        navigateTo('/');
     }
 
     return (

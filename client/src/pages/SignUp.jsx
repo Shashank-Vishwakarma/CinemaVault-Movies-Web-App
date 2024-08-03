@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { KeyRound, Mail, UserIcon } from 'lucide-react';
 import useSignUp from '../hooks/useSignUp.js'
 
@@ -10,9 +10,12 @@ const SignUp = () => {
 
     const { loading, signup } = useSignUp();
 
+    const navigateTo = useNavigate();
+
     const handleSignUp = async (e) => {
         e.preventDefault();
         await signup({ email, username, password });
+        navigateTo('/');
     }
 
     return (

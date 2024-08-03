@@ -24,7 +24,7 @@ const useLogin = () => {
 
             setLoading(false);
             setUser(response?.user);
-            toast.success("Login Up successful");
+            toast.success("Login successful");
         } catch (error) {
             toast.error("Error in useLogin hook : ", error.message);
         } finally {

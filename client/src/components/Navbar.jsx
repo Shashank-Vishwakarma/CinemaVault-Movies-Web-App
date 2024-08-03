@@ -14,29 +14,30 @@ const Navbar = () => {
     return (
         <header className='max-w-6xl mx-auto flex flex-wrap items-center justify-between p-4 h-20'>
             <div className='flex items-center gap-10 z-50'>
-                <Link to='/'>
-                    <img src='/logo.png' alt='Netflix Logo' className='w-20' />
+                <Link to='/' className="flex gap-4 items-center">
+                    <img src='/logo.png' alt='Netflix Logo' className='w-16' />
+                    <span className="font-bold text-xl">CinemaVault</span>
                 </Link>
 
                 {/* desktop navbar items */}
-                <div className='hidden sm:flex gap-2 items-center'>
-                    <Link to='/' className='hover:underline'>
-                        Movies
+                <div className='hidden sm:flex gap-12 items-center'>
+                    <Link to='/' className='text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
+                        MOVIES
                     </Link>
-                    <Link to='/' className='hover:underline'>
-                        Tv Shows
+                    <Link to='/' className='text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
+                        TV SHOWS
                     </Link>
-                    <Link to='/history' className='hover:underline'>
+                    {/* <Link to='/history' className='text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
                         Search History
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
 
-            <div className='flex gap-2 items-center z-50'>
+            <div className='flex gap-8 items-center z-50'>
                 <Link to={"/search"}>
                     <Search className='size-6 cursor-pointer' />
                 </Link>
-                <img alt='Avatar' className='h-8 rounded cursor-pointer' />
+                <img src="/avatar1.png" alt='Avatar' className='h-8 rounded cursor-pointer' />
 
                 {
                     loading ? <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,15 +52,15 @@ const Navbar = () => {
             </div>
 
             <div className='w-full sm:hidden mt-4 z-50 bg-black border rounded border-gray-800'>
-                <Link to={"/"} className='block hover:underline p-2'>
-                    Movies
+                <Link to={"/"} className='block text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
+                    MOVIES
                 </Link>
-                <Link to={"/"} className='block hover:underline p-2'>
-                    Tv Shows
+                <Link to={"/"} className='block text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
+                    TV SHOWS
                 </Link>
-                <Link to={"/history"} className='block hover:underline p-2'>
+                {/* <Link to={"/history"} className='block text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
                     Search History
-                </Link>
+                </Link> */}
             </div>
         </header>
     );

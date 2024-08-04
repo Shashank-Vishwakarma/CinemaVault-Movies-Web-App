@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import useAuthStore from "./store/useAuthStore.js";
 import Search from "./pages/Search.jsx";
 import SearchHistory from "./pages/SearchHistory.jsx";
+import Watch from "./pages/Watch.jsx";
 
 function App() {
   const { user } = useAuthStore();
@@ -18,6 +19,7 @@ function App() {
         <Route path={'/signup'} element={!user ? <SignUp /> : <Navigate to={'/'} />} />
         <Route path={'/search'} element={<Search />} />
         <Route path={'/search/history'} element={<SearchHistory />} />
+        <Route path={'/watch/:id'} element={<Watch />} />
       </Routes>
     </BrowserRouter>
   )

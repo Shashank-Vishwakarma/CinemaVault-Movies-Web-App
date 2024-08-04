@@ -3,14 +3,18 @@ import { Info, Play } from "lucide-react";
 import { MOVIE_CATEGORIES, ORIGINAL_IMG_BASE_URL, TV_CATEGORIES } from "../constants/constants.js";
 import MovieSlider from "../components/MovieSlider";
 import Navbar from '../components/Navbar.jsx'
+import AuthScreen from './AuthScreen.jsx';
 import useContentStore from "../store/useContentStore.js";
 import useGetTrendingContent from "../hooks/useGetTrendingContent.js";
+import useAuthStore from "../store/useAuthStore.js";
 
-const HomeScreen = () => {
+const Home = () => {
     const { trendingContent } = useGetTrendingContent();
     const { contentType } = useContentStore();
 
-    return (
+    const { user } = useAuthStore();
+
+    return user ? (
         <>
             <div className='relative h-screen text-white '>
                 <Navbar />
@@ -72,6 +76,7 @@ const HomeScreen = () => {
                     : TV_CATEGORIES.map((category) => <MovieSlider key={category} category={category} />)}
             </div>
         </>
-    );
+    ) : <AuthScreen />
 };
-export default HomeScreen;
+
+export default Home;

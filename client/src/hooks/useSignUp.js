@@ -23,10 +23,11 @@ const useSignUp = () => {
             );
 
             setLoading(false);
-            setUser(response?.user);
+            setUser(response.data?.user);
             toast.success("Sign Up successful");
         } catch (error) {
-            toast.error("Error in useSignUp hook : ", error.message);
+            toast.error("Error in sign up");
+            console.log("Error in useSignUp hook : ", error.message);
         } finally {
             setLoading(false);
         }

@@ -20,7 +20,8 @@ const useLogout = () => {
             setUser(null);
             toast.success("Logout successful");
         } catch (error) {
-            toast.error("Error in useLogout hook : ", error.message);
+            toast.error("Error in logout");
+            console.log("Error in useLogout hook : ", error);
         } finally {
             setLoading(false);
         }

@@ -28,14 +28,14 @@ TMDB_API_TOKEN=....
 ```
 
 ## Frontend setup
-1. Move to client folder and run below commands:
+Move to client folder and run below commands:
 ```
 npm install
 npm run dev
 ```
 
 ## Backend setup
-1. In the root directory, run the below commands:
+In the root directory, run the below commands:
 ```
 npm install
 npm run server

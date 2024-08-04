@@ -23,10 +23,11 @@ const useLogin = () => {
             );
 
             setLoading(false);
-            setUser(response?.user);
+            setUser(response.data?.user);
             toast.success("Login successful");
         } catch (error) {
-            toast.error("Error in useLogin hook : ", error.message);
+            toast.error("Error in login");
+            console.log("Error in useLogin hook : ", error.message);
         } finally {
             setLoading(false);
         }

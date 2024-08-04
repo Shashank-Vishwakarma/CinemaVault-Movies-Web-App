@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { KeyRound, Mail, UserIcon } from 'lucide-react';
-import useSignUp from '../hooks/useSignUp.js'
+import useSignUp from '../hooks/useSignUp.js';
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ const SignUp = () => {
                 <Link to={"/"}>
                     <div className='flex flex-row gap-4 items-center'>
                         <img src='/logo.png' alt='logo' className='w-20' />
-                        <span className='text-lg text-white font-bold'>CinemaVault</span>
+                        <span className='text-lg text-sky-500 font-bold'>CinemaVault</span>
                     </div>
                 </Link>
             </header>

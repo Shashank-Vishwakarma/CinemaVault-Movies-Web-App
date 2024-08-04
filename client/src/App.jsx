@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import useAuthStore from "./store/useAuthStore.js";
+import Search from "./pages/Search.jsx";
 
 function App() {
   const { user } = useAuthStore();
@@ -14,6 +15,7 @@ function App() {
         <Route path={'/'} element={<Home />} />
         <Route path={'/login'} element={!user ? <Login /> : <Navigate to={'/'} />} />
         <Route path={'/signup'} element={!user ? <SignUp /> : <Navigate to={'/'} />} />
+        <Route path={'/search'} element={<Search />} />
       </Routes>
     </BrowserRouter>
   )

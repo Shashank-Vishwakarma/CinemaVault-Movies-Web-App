@@ -16,6 +16,8 @@ const useLogout = () => {
                 { withCredentials: true }
             );
 
+            localStorage.removeItem("cinemavault-data");
+
             setLoading(false);
             setUser(null);
             toast.success("Logout successful");

@@ -14,8 +14,7 @@ export const fetchMoviesFromTMDB = async (url) => {
         );
 
         return response.data;
-    } catch(error) {
+    } catch (error) {
         console.log("Error in fetchMovies: ", error);
-        throw new Error(error.message);
     }
 }

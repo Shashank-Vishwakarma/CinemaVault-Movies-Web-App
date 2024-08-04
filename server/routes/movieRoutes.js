@@ -4,9 +4,9 @@ import { getTrailersForMovie, getTrendingMovie, getMovieDetails, getSimilarMovie
 const movieRoutes = express.Router();
 
 movieRoutes.get('/trending', getTrendingMovie);
-movieRoutes.get('/:tvShow_id/trailers', getTrailersForMovie);
-movieRoutes.get('/:tvShow_id/details', getMovieDetails);
-movieRoutes.get('/:tvShow_id/similar', getSimilarMovies);
+movieRoutes.get('/:movie_id/trailers', getTrailersForMovie);
+movieRoutes.get('/:movie_id/details', getMovieDetails);
+movieRoutes.get('/:movie_id/similar', getSimilarMovies);
 movieRoutes.get('/:category', getMoviesByCategory);
 
 export default movieRoutes;

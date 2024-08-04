@@ -1,9 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { LogOut, Menu, Search } from "lucide-react";
 import useLogout from "../hooks/useLogout.js";
+import useContentStore from "../store/useContentStore.js";
 
 const Navbar = () => {
     const { loading, logout } = useLogout();
+    const { setContentType } = useContentStore();
     const navigateTo = useNavigate();
 
     const handleLogout = async () => {
@@ -21,15 +23,18 @@ const Navbar = () => {
 
                 {/* desktop navbar items */}
                 <div className='hidden sm:flex gap-12 items-center'>
-                    <Link to='/' className='text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
+                    <Link
+                        to='/' className='text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'
+                        onClick={() => setContentType("movie")}
+                    >
                         MOVIES
                     </Link>
-                    <Link to='/' className='text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
+                    <Link
+                        to='/' className='text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'
+                        onClick={() => setContentType("tv")}
+                    >
                         TV SHOWS
                     </Link>
-                    {/* <Link to='/history' className='text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
-                        Search History
-                    </Link> */}
                 </div>
             </div>
 
@@ -58,9 +63,6 @@ const Navbar = () => {
                 <Link to={"/"} className='block text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
                     TV SHOWS
                 </Link>
-                {/* <Link to={"/history"} className='block text-lg font-semibold hover:border hover:border-slate-500 p-2 hover:rounded-lg hover:bg-slate-600'>
-                    Search History
-                </Link> */}
             </div>
         </header>
     );

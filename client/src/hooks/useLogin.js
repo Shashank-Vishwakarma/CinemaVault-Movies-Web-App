@@ -22,6 +22,8 @@ const useLogin = () => {
                 }
             );
 
+            localStorage.setItem("cinemavault-data", JSON.stringify(response.data?.user));
+
             setLoading(false);
             setUser(response.data?.user);
             toast.success("Login successful");

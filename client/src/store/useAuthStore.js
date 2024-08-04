@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const useAuthStore = create((set) => ({
-    user: null,
+    user: JSON.parse(localStorage.getItem('cinemavault-data')),
     setUser: (user) => set({ user })
 }));
 

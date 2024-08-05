@@ -7,6 +7,7 @@ import useAuthStore from "./store/useAuthStore.js";
 import Search from "./pages/Search.jsx";
 import SearchHistory from "./pages/SearchHistory.jsx";
 import Watch from "./pages/Watch.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 function App() {
   const { user } = useAuthStore();
@@ -20,6 +21,7 @@ function App() {
         <Route path={'/search'} element={<Search />} />
         <Route path={'/search/history'} element={<SearchHistory />} />
         <Route path={'/watch/:id'} element={<Watch />} />
+        <Route path={'*'} element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
